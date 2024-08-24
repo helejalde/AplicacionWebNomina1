@@ -1,0 +1,49 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="~/Content/CSS/Login.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="sidenav">
+        <div class="login-main-text">
+            <h2>Integracion de software<br> Pagina de logeo</h2>
+            <p>Ingresa tus credenciales.</p>
+        </div>
+    </div>
+    <div class="main">
+        <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+                <form action="@Url.Action("Login","Acceso")" method="post">
+                    <div class="form-group">
+                        <label>User Name</label>
+                        <input type="text" name="user" class="form-control" placeholder="Usuario" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" name="passw" class="form-control" placeholder="Contraseña" required>
+                    </div>
+
+                    @if (ViewData["Mensaje"] != null)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @ViewData["Mensaje"]
+                        </div>
+                    }
+
+                    <button type="submit" class="btn btn-black">Login</button>
+                    <a class="btn btn-secondary" href="@Url.Action("Registrar", "Acceso")">Register</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
